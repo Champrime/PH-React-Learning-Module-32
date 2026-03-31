@@ -2,7 +2,7 @@ import { use } from "react";
 
 export default function Users({Username}){
     const fetchUser = use (Username);
-    console.log(fetchUser);
+    // console.log(fetchUser);
     return(
         <div>
             <h3>Users: {fetchUser.length}</h3>

@@ -5,14 +5,14 @@ import "./App.css";
 
 export default function FriendCustomed({person, friendClassName}){
     let FriendOneByOne = use(person);
-    console.log("FriendOneByOne");
-    FriendOneByOne.forEach(x => console.log(x.address));
+    // console.log("FriendOneByOne");
+    // FriendOneByOne.forEach(x => console.log(x));
     // const friendName = person;
     return (
         <Suspense fallback={<p>Friends and Addresses Loading...</p>}>
             {
                 FriendOneByOne.map(friend =>
-                <div className={friendClassName}>
+                <div key={friend.id} className={friendClassName}>
                     <h5>{<Friend fontBGName="cardb" fontClassName="FriendJhankarBoss"></Friend>} from "{friend.address.street}" street</h5>
                     {/* The friendClassName is a prop.
                         It has taken a class against this prop name from where `FriendCustomed` is imported. Then passed a css style from stylesheet to the component as another prop.

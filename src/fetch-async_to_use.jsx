@@ -48,7 +48,8 @@ function FetchMessage(){
                 <Friends Username = {FriendsAPI}></Friends>
                     {/* As I mapped FriendsAPI, each iterated object will pass through `friend` parameter inside FriendsAPI.map.
                     The function will return a component `<Friend></Friend>` in each iteration to facilitate each iterated object.`friend` parameter will pass itself as an object inside `person` prop dynamically. `person` receive it, will process the raw object inside its own domain.*/}
-
+            </Suspense>                    
+            <Suspense fallback={<h6>Friends are coming from places...</h6>}>
                 <FriendCustomed friendClassName="counter" person = {FriendsAPI}></FriendCustomed>
             </Suspense>
         </>

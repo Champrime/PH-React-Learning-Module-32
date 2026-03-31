@@ -1,9 +1,12 @@
 import "./App.css"
 
-export default function Friend({fontBGName, fontClassName}){
+export default function Friend({friendLooped, fontBGName, fontClassName}){
+    console.log(friendLooped);
+    const friend = friendLooped;
+    // console.log(friend);
     return(
         <div className={`card ${fontBGName}`}>
-            <h4 className={fontClassName}>Name: </h4>
+            <h4 className={fontClassName}>Name: {}</h4>
         </div>
     )
 }
