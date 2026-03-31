@@ -1,6 +1,15 @@
 .card{
   border:2px solid yellow;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
+  min-width: fit-content;
+}
+
+.card2{
+  border:2px solid yellow;
+  border-radius: 0.5rem;
+  width: fit-content;
+  height: auto;
+  margin: 0 auto;
 }
 .cardb{
   background: linear-gradient(to bottom left, #cad 2.5%, white, #321997 82.5%);

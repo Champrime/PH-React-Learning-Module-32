@@ -10,9 +10,9 @@
 
 import { Suspense } from "react";
 import Users from "./Users";
-import Friend from "./FriendJhankarBoss";
 import FriendCustomed from "./FriendCustomed";
 import Friends from "./Friends";
+import Posts from "./Posts";
 import './App.css';
 // const asyncUsers = async() => {
 //     let res = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -28,6 +28,10 @@ const asyncFriends = async() => {
     return res.json();
 }
 
+const asyncPostMakers = async() => {
+    let res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    return res.json();
+}
 
 /*
 
@@ -41,18 +45,24 @@ const asyncFriends = async() => {
 function FetchMessage(){
     const usersAPI = fetchUsers;
     const FriendsAPI = asyncFriends();
+    const PostAPI = asyncPostMakers();
     return (
         <>
-            <Suspense fallback={<h6>Loading...</h6>}>
+            <Suspense fallback = {<h6>Loading...</h6>}>
                 <Users Username = {usersAPI}></Users>
             </Suspense>
-            <Suspense fallback={<h6>Friends are coming for FIFA 19...</h6>}>
+            <Suspense fallback = {<h6>Friends are coming for FIFA 19...</h6>}>
                 <Friends Username = {FriendsAPI}></Friends>
-                    {/* As I mapped FriendsAPI, each iterated object will pass through `friend` parameter inside FriendsAPI.map.
-                    The function will return a component `<Friend></Friend>` in each iteration to facilitate each iterated object.`friend` parameter will pass itself as an object inside `person` prop dynamically. `person` receive it, will process the raw object inside its own domain.*/}
+                    {
+                    /* As I mapped FriendsAPI, each iterated object will pass through `friend` parameter inside FriendsAPI.map.
+                    The function will return a component `<Friend></Friend>` in each iteration to facilitate each iterated object.`friend` parameter will pass itself as an object inside `person` prop dynamically. `person` receive it, will process the raw object inside its own domain.*/
+                    }
             </Suspense>                    
             <Suspense fallback={<h6>Friends are coming from places...</h6>}>
                 <FriendCustomed friendClassName="counter" person = {FriendsAPI}></FriendCustomed>
+            </Suspense>
+            <Suspense fallback={<h4>Posts are coming...</h4>}>
+                <Posts postMakers={PostAPI}></Posts>
             </Suspense>
         </>
     )
