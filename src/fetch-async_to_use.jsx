@@ -27,6 +27,8 @@ const asyncFriends = async() => {
     let res = await fetch("https://jsonplaceholder.typicode.com/users");
     return res.json();
 }
+
+
 /*
 
 1. Just write a simple fetch with json conversion
@@ -38,7 +40,7 @@ const asyncFriends = async() => {
 
 function FetchMessage(){
     const usersAPI = fetchUsers;
-    let FriendsAPI = asyncFriends();
+    const FriendsAPI = asyncFriends();
     return (
         <>
             <Suspense fallback={<h6>Loading...</h6>}>
