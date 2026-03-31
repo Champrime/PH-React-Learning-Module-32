@@ -9,9 +9,11 @@
 // }
 
 import { Suspense } from "react";
-import Users from "./Users"
-import Friends from "./Friends"
-
+import Users from "./Users";
+import Friend from "./FriendJhankarBoss";
+import FriendCustomed from "./FriendCustomed";
+import Friends from "./Friends";
+import './App.css';
 // const asyncUsers = async() => {
 //     let res = await fetch("https://jsonplaceholder.typicode.com/users");
 //     let data = await res.json();
@@ -36,7 +38,7 @@ const asyncFriends = async() => {
 
 function FetchMessage(){
     const usersAPI = fetchUsers;
-    const FriendsAPI = asyncFriends();
+    let FriendsAPI = asyncFriends();
     return (
         <>
             <Suspense fallback={<h6>Loading...</h6>}>
@@ -44,6 +46,10 @@ function FetchMessage(){
             </Suspense>
             <Suspense fallback={<h6>Friends are coming for FIFA 19...</h6>}>
                 <Friends Username = {FriendsAPI}></Friends>
+                    {/* As I mapped FriendsAPI, each iterated object will pass through `friend` parameter inside FriendsAPI.map.
+                    The function will return a component `<Friend></Friend>` in each iteration to facilitate each iterated object.`friend` parameter will pass itself as an object inside `person` prop dynamically. `person` receive it, will process the raw object inside its own domain.*/}
+
+                <FriendCustomed friendClassName="counter" person = {FriendsAPI}></FriendCustomed>
             </Suspense>
         </>
     )
