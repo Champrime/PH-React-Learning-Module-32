@@ -9,7 +9,7 @@ export default function Posts({postMakers}){
         <>
             <h2>All posts are here</h2>
             <Suspense>
-                {posts.map(p => <Post key={p.id} postMaker={p}>{console.log(p)}</Post>)}
+                {posts.map(p => <Post key={p.id} postMaker={p}></Post>)}
             </Suspense>
         </>
     )

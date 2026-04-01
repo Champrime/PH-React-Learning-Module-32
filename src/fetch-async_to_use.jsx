@@ -13,6 +13,7 @@ import Users from "./Users";
 import FriendCustomed from "./FriendCustomed";
 import Friends from "./Friends";
 import Posts from "./Posts";
+import Players from "./Players_useEffect-useState";
 import './App.css';
 // const asyncUsers = async() => {
 //     let res = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -28,10 +29,14 @@ const asyncFriends = async() => {
     return res.json();
 }
 
+const FriendsAPI = asyncFriends();
+
 const asyncPostMakers = async() => {
     let res = await fetch("https://jsonplaceholder.typicode.com/posts");
     return res.json();
 }
+
+const PostAPI = asyncPostMakers();
 
 /*
 
@@ -44,8 +49,6 @@ const asyncPostMakers = async() => {
 
 function FetchMessage(){
     const usersAPI = fetchUsers;
-    const FriendsAPI = asyncFriends();
-    const PostAPI = asyncPostMakers();
     return (
         <>
             <Suspense fallback = {<h6>Loading...</h6>}>
@@ -63,6 +66,9 @@ function FetchMessage(){
             </Suspense>
             <Suspense fallback={<h4>Posts are coming...</h4>}>
                 <Posts postMakers={PostAPI}></Posts>
+            </Suspense>
+            <Suspense fallback={<h4>Squad is loading...</h4>}>
+                <Players></Players>
             </Suspense>
         </>
     )
