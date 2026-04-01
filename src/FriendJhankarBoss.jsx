@@ -3,7 +3,6 @@ import "./App.css"
 export default function Friend({friendLooped, fontBGName, fontClassName}){
     // console.log(friendLooped);
     const {name, email, phone} = friendLooped;
-
     // console.log(friend);
     return(
         <div className={`card2 ${fontBGName}`}>

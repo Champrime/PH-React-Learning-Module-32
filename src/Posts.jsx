@@ -4,12 +4,12 @@ import Post from "./Post.jsx"
 
 export default function Posts({postMakers}){
     const posts = use(postMakers);
+    // console.log(posts);
     return(
         <>
             <h2>All posts are here</h2>
             <Suspense>
-                {posts.map(p => <Post key={p.id} postMaker={p}></Post>)}
-                {console.log}
+                {posts.map(p => <Post key={p.id} postMaker={p}>{console.log(p)}</Post>)}
             </Suspense>
         </>
     )

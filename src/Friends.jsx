@@ -4,8 +4,7 @@ import Friend from "./FriendJhankarBoss";
 function Friends({Username}){
     const FriendsGang = use (Username);
     return (
-        <div className="card
-        "> {/*props not needed if the className doesn't have to be imported or exported via components*/}
+        <div className="card"> {/*props not needed if the className doesn't have to be imported or exported via components*/}
             <h3>Friends: {FriendsGang.length}</h3>
             {
                 FriendsGang.map(friend => <Friend key={friend.id} friendLooped={friend}></Friend>)
